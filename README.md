@@ -280,19 +280,4 @@ curl -X POST "http://localhost:8000/api/v1/query" \
   }'
 ```
 
-## 📝 License
-
-This project is designed for educational and demonstration purposes.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
-
----
-
-**Note**: This system is designed to meet the specific requirements of the LLM-Powered Intelligent Query-Retrieval System problem statement, with focus on insurance, legal, HR, and compliance domains. #   b a j a j  
  
