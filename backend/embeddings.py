@@ -31,8 +31,8 @@ if USE_OLLAMA:
 
 if not USE_OLLAMA:
     embed_model = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={'device': 'cpu'},
+        model_name="intfloat/e5-large-v2",
+        model_kwargs={'device': 'cuda'},
         encode_kwargs={'normalize_embeddings': True}
     )
     logger.info("✅ Using HuggingFace embeddings: all-MiniLM-L6-v2")

@@ -40,7 +40,8 @@ logger = logging.getLogger(__name__)
 # Import our modules with error handling
 try:
     from .embeddings import embedding_system
-    from .decision_logic import answer_question, batch_answer_questions
+    #from backend.decision_logic import get_relevant_context
+    from backend.decision_logic import answer_question_enhanced as answer_question
     from .utils import extract_text_from_pdf, clean_text, split_text_into_chunks
     logger.info("✅ All modules imported successfully")
 except ImportError as e:

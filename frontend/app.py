@@ -23,8 +23,8 @@ def display_enhanced_response(response_data):
     
     st.markdown(f"""
     <div style='padding: 20px; border-left: 5px solid {confidence_color}; background-color: #f8f9fa; margin: 10px 0;'>
-        <h4>📋 Answer</h4>
-        <p style='font-size: 16px; line-height: 1.6;'>{response_data.get('answer', 'No answer available')}</p>
+        <h4 style='color:black'>📋 Answer</h4>
+        <p style='font-size: 16px; line-height: 1.6;color: black; font-weight: semibold;'>{response_data.get('answer', 'No answer available')}</p>
     </div>
     """, unsafe_allow_html=True)
     
