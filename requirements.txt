@@ -1,5 +1,5 @@
 # Build tools (must come first)
-setuptools>
+setuptools
 wheel
 
 # Core FastAPI and web framework
