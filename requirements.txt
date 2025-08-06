@@ -1,3 +1,7 @@
+# Build tools (must come first)
+setuptools>=42
+wheel
+
 # Core FastAPI and web framework
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
@@ -27,12 +31,9 @@ pinecone-client==2.2.4
 # Utilities
 python-dotenv==1.0.0
 requests==2.31.0
-aiohttp==3.9.1
+aiohttp==3.9.5  # ✅ Use latest to avoid compatibility issues
 pandas==2.0.3
 scikit-learn==1.3.0
-
-# Frontend (optional)
-streamlit==1.28.1
 
 # Development and testing
 pytest==7.4.3
@@ -41,4 +42,5 @@ httpx==0.25.2
 # Logging and monitoring
 loguru==0.7.2
 
-aiohttp==3.9.5
+# Frontend (optional — comment out if not needed in backend)
+# streamlit==1.28.1
