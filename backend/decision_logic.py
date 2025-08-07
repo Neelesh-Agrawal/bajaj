@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 # Configuration - Using T5 for better text generation
 # MODEL_NAME = os.getenv("HF_MODEL_NAME", "google/flan-t5-base")
 MODEL_NAME = os.getenv("HF_MODEL_NAME", "openai/gpt-oss-20b")
-USE_GPU = torch.cuda.is_available()
+USE_GPU = False
 HF_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 
 class EnhancedHuggingFaceLLM:
