@@ -102,21 +102,21 @@ class HealthResponse(BaseModel):
 
 # ==================== AUTHENTICATION ====================
 
-# def verify_hackrx_token(authorization: str = Header(None)):
-#     """Verify HackRX bearer token"""
-#     if not authorization:
-#         raise HTTPException(status_code=401, detail="Authorization header missing")
+def verify_hackrx_token(authorization: str = Header(None)):
+    """Verify HackRX bearer token"""
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Authorization header missing")
     
-#     if not authorization.startswith("Bearer "):
-#         raise HTTPException(status_code=401, detail="Invalid authorization format")
+    if not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Invalid authorization format")
     
-#     token = authorization.replace("Bearer ", "")
-#     expected_token = "920db1a1e34d4a69ef73ad8bcc1dd0dc2b23ea42eb973bc4e4d24d8b7bb2e3b8"
+    token = authorization.replace("Bearer ", "")
+    expected_token = "920db1a1e34d4a69ef73ad8bcc1dd0dc2b23ea42eb973bc4e4d24d8b7bb2e3b8"
     
-#     if token != expected_token:
-#         raise HTTPException(status_code=401, detail="Invalid token")
+    if token != expected_token:
+        raise HTTPException(status_code=401, detail="Invalid token")
     
-#     return token
+    return token
 
 # ==================== UTILITY FUNCTIONS ====================
 
@@ -287,7 +287,7 @@ async def hackrx_submission_endpoint(
     """
     try:
         # Verify authentication
-        # verify_hackrx_token(authorization)
+        verify_hackrx_token(authorization)
         
         doc_url = request.documents
         questions = request.questions
@@ -346,7 +346,7 @@ async def single_query(
 ):
     """Query the processed documents or process new document"""
     try:
-        # verify_hackrx_token(authorization)
+        verify_hackrx_token(authorization)
         
         question = request.question
         logger.info(f"🔍 Processing query: {question[:50]}...")
@@ -384,11 +384,11 @@ async def single_query(
 @app.post("/api/v1/documents/process")
 async def process_document(
     file: UploadFile = File(...),
-    # authorization: str = Header(None)
+    authorization: str = Header(None)
 ):
     """Process a document by uploading it directly"""
     try:
-        # verify_hackrx_token(authorization)
+        verify_hackrx_token(authorization)
         logger.info(f"🔄 Processing document: {file.filename}")
         
         file_data = await process_uploaded_file(file)
@@ -428,7 +428,7 @@ async def process_document(
 async def clear_database(authorization: str = Header(None)):
     """Clear the vector database"""
     try:
-        # verify_hackrx_token(authorization)
+        verify_hackrx_token(authorization)
         embedding_system.clear_index()
         
         return {
